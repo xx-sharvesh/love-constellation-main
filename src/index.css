@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Memory Galaxy Design System - Constellation Romance Theme */
+
+@layer base {
+  :root[data-theme='dark'] {
+    /* Cosmic Background - Matching provided theme */
+    --deep-navy: 240 63% 10%;
+    --dark-space: 248 65% 5%;
+    --purple-dark: 240 44% 19%;
+    --purple-medium: 240 44% 31%;
+    --purple-light: 240 31% 41%;
+    
+    --bg-gradient-start: 248 65% 5%;
+    --bg-gradient-end: 240 63% 10%;
+    
+    /* Cards & Surfaces */
+    --card-bg: 240 44% 19%;
+    --card-bg-hover: 240 44% 23%;
+    --surface-glass: 240 44% 19%;
+    --footer-bg: 248 65% 5%;
+    
+    /* Constellation Colors */
+    --accent-lavender: 270 46% 73%;
+    --accent-blush: 330 100% 71%;
+    --accent-gold: 45 100% 50%;
+    --accent-cosmic: 270 46% 73%;
+    
+    /* Text Colors */
+    --text-primary: 0 0% 94%;
+    --text-secondary: 247 24% 80%;
+    --text-muted: 245 14% 73%;
+    
+    /* Interactive States */
+    --constellation-line: 270 46% 73%;
+    --star-glow: 0 0% 100%;
+    --star-color: 0 0% 100%;
+    --hover-glow: 270 46% 73%;
+    
+    /* UI Elements */
+    --border: 240 20% 20%;
+    --input: 240 25% 15%;
+    --ring: 270 46% 73%;
+    
+    /* Legacy mappings for compatibility */
+    --background: 248 65% 5%;
+    --foreground: 0 0% 94%;
+    --primary: 270 46% 73%;
+    --primary-foreground: 240 63% 10%;
+    --secondary: 240 44% 19%;
+    --secondary-foreground: 0 0% 94%;
+    --muted: 240 44% 19%;
+    --muted-foreground: 245 14% 73%;
+    --accent: 330 100% 71%;
+    --accent-foreground: 240 63% 10%;
+    --card: 240 44% 19%;
+    --card-foreground: 0 0% 94%;
+    --popover: 240 44% 19%;
+    --popover-foreground: 0 0% 94%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 94%;
+  }
+
+  :root[data-theme='light'] {
+    /* Celestial Light Background - Matching provided theme */
+    --deep-navy: 250 100% 96%;
+    --dark-space: 250 33% 94%;
+    --purple-dark: 250 33% 89%;
+    --purple-medium: 250 30% 88%;
+    --purple-light: 250 27% 86%;
+    
+    --bg-gradient-start: 250 33% 94%;
+    --bg-gradient-end: 250 100% 96%;
+    
+    /* Cards & Surfaces */
+    --card-bg: 250 100% 96%;
+    --card-bg-hover: 250 60% 94%;
+    --surface-glass: 250 100% 96%;
+    --footer-bg: 250 33% 94%;
+    
+    /* Constellation Colors */
+    --accent-lavender: 250 54% 53%;
+    --accent-blush: 332 68% 58%;
+    --accent-gold: 43 100% 38%;
+    --accent-cosmic: 250 54% 53%;
+    
+    /* Text Colors */
+    --text-primary: 240 48% 13%;
+    --text-secondary: 240 31% 29%;
+    --text-muted: 245 14% 42%;
+    
+    /* Interactive States */
+    --constellation-line: 250 54% 53%;
+    --star-glow: 240 32% 34%;
+    --star-color: 240 32% 34%;
+    --hover-glow: 250 54% 53%;
+    
+    /* UI Elements */
+    --border: 270 20% 85%;
+    --input: 270 15% 95%;
+    --ring: 250 54% 53%;
+    
+    /* Legacy mappings for compatibility */
+    --background: 250 33% 94%;
+    --foreground: 240 48% 13%;
+    --primary: 250 54% 53%;
+    --primary-foreground: 250 100% 96%;
+    --secondary: 250 100% 96%;
+    --secondary-foreground: 240 48% 13%;
+    --muted: 250 100% 96%;
+    --muted-foreground: 245 14% 42%;
+    --accent: 332 68% 58%;
+    --accent-foreground: 250 100% 96%;
+    --card: 250 100% 96%;
+    --card-foreground: 240 48% 13%;
+    --popover: 250 100% 96%;
+    --popover-foreground: 240 48% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 250 100% 96%;
+  }
+
+  /* Font Variables */
+  :root {
+    --font-primary: 'Quicksand', sans-serif;
+    --font-secondary: 'Nunito', sans-serif;
+    --radius: 0.75rem;
+  }
+}
+
+/* Constellation Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -15px) rotate(2deg); }
+  50% { transform: translate(-5px, -10px) rotate(-1deg); }
+  75% { transform: translate(-10px, 5px) rotate(3deg); }
+}
+
+@keyframes constellation-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes meteor {
+  0% { transform: translateX(-100px) translateY(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100vw) translateY(100vh); opacity: 0; }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px hsl(var(--star-glow)), 0 0 10px hsl(var(--star-glow)), 0 0 15px hsl(var(--star-glow));
+  }
+  50% { 
+    box-shadow: 0 0 10px hsl(var(--star-glow)), 0 0 20px hsl(var(--star-glow)), 0 0 30px hsl(var(--star-glow));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-secondary);
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    background: linear-gradient(135deg, hsl(var(--dark-space)), hsl(var(--deep-navy)), hsl(var(--purple-dark)));
+    color: hsl(var(--text-primary));
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Memory Card Styles */
+  .memory-card {
+    @apply relative overflow-hidden rounded-2xl p-6;
+    background: linear-gradient(135deg, hsl(var(--card-bg)), hsl(var(--card-bg-hover)));
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .memory-card:hover {
+    transform: translateY(-4px);
+    border-color: hsl(var(--accent-lavender));
+    box-shadow: 0 20px 40px -12px hsl(var(--accent-lavender) / 0.3);
+  }
+
+  /* Constellation Background */
+  .constellation-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .star {
+    position: absolute;
+    background: hsl(var(--star-glow));
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+  }
+
+  .star:nth-child(odd) {
+    animation-delay: 1s;
+  }
+
+  .star:nth-child(3n) {
+    animation-delay: 2s;
+  }
+
+  .constellation {
+    position: absolute;
+    animation: float 8s infinite ease-in-out;
+  }
+
+  .constellation:nth-child(even) {
+    animation-delay: 2s;
+    animation-direction: reverse;
+  }
+
+  .constellation-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--star-glow)), transparent);
+    transform-origin: left;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  /* Floating Elements */
+  .floating-mail {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+    animation: float 6s infinite ease-in-out;
+  }
+
+  .floating-countdown {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    animation: float 8s infinite ease-in-out;
+  }
+
+  /* Theme Toggle */
+  .theme-toggle {
+    background: linear-gradient(135deg, hsl(var(--card-bg)), hsl(var(--card-bg-hover)));
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(10px);
+  }
+
+  /* Glass Morphism Effect */
+  .glass {
+    background: hsl(var(--surface-glass) / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+
+  /* Romantic Buttons */
+  .btn-romantic {
+    background: linear-gradient(135deg, hsl(var(--accent-blush)), hsl(var(--accent-lavender)));
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-romantic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px hsl(var(--accent-blush) / 0.4);
+  }
+
+  .btn-cosmic {
+    background: linear-gradient(135deg, hsl(var(--accent-cosmic)), hsl(var(--accent-gold)));
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-cosmic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px hsl(var(--accent-cosmic) / 0.4);
+  }
+}
